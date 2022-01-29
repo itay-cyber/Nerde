@@ -5,9 +5,11 @@ A small algebra calculator that can do calculus as well
 
 install python <b>3.8</b> from https://www.python.org
 
-`pip install sympy`
+1. open Command Prompt (or terminal on linux)
 
-`python main.py`
+2. install sympy with PIP - `pip install sympy`
+
+3. run the program - `python main.py`
 
 #### Commmands:
 
