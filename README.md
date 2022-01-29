@@ -5,7 +5,7 @@ A small algebra calculator that can do calculus as well
 
 install python <b>3.8</b> from https://www.python.org
 
-1. Install main.py on your machine (save the file on )
+1. Install main.py on your machine (save the file on https://raw.githubusercontent.com/itay-cyber/Nerde/main/main.py to your computer)
 
 2. open Command Prompt (or terminal on linux)
 
