@@ -16,6 +16,6 @@ A small algebra calculator that can do calculus as well
 - `quit/exit` - quit the program
 - `diff/differentiate/derivative` - get the derivative of a function (in terms of x only so far)
 - `lim/limit/calculate limit` - get the $\lim$ of a function as x -> some value
-- `integ/integrate/integral` - get the integral of a function in terms of x (use oo and -oo to represent infinity, negative infinity)
+- `integ/integrate/integral` - get the &int; of a function in terms of x (use oo and -oo to represent infinity, negative infinity)
 
 # Have fun!
