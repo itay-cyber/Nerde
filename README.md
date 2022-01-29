@@ -3,9 +3,11 @@ A small algebra calculator that can do calculus as well
 
 #### How to run
 
+install python <b>3.8</b> from https://www.python.org
+
 `pip install sympy`
 
-- `python main.py`
+`python main.py`
 
 #### Commmands:
 
