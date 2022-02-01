@@ -1,7 +1,11 @@
-import sympy as sp
-from sympy import I
-from sympy.abc import x, y, z
 import os
+try:
+    import sympy as sp
+    from sympy import I
+    from sympy.abc import x, y, z
+except:
+    os.system("pip install sympy")
+    
 
 
 def factorise(expr):
