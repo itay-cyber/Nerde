@@ -5,10 +5,15 @@ try:
     from sympy.abc import x, y, z
 except:
     os.system("pip install sympy")
+    import sympy as sp
+    from sympy import I
+    from sympy.abc import x, y,z
     
 
 
 def factorise(expr):
+        
+
     try:
         print(sp.factor(expr, extension=[I]))
 
@@ -31,10 +36,10 @@ def solve_eqn(eqn_expr):
     try:
         eqn = sp.sympify(eqn_expr)
         print("x = {}".format(str(sp.solveset(eqn))))
+        return True
 
-    except Exception as e:
-        print(e)
-        print("Could not solve equation \'{}\'".format(eqn_expr))
+    except:
+        return False
 
 
 def calc_lim(lim_func):
@@ -52,6 +57,9 @@ def calc_lim(lim_func):
     except Exception as e:
         print("Could not take the limit.")
         print(e)
+
+def helpmepls():
+    print("Nerde, an algebra calculator\nIn order to get started type a command in the prompt.\nAvailable Commands: \n\tsolve equation\n\tplot function\n\tfactorise polynomial/poly\n\tintegrate, differentiate\n\tcalculate limit\n\tclearscreen/cls/clear,\n\tquit")
 
 
 def deriv(deriv_func):
@@ -94,13 +102,14 @@ def integ(integ_func):
 
 
 def main():
+    helpmepls()
     while True:
         cmd = input("What would you like to do?:").lower()
 
+        
+
         if (cmd == 'help'):
-            print(
-                "solve equation, plot function, factorise polynomial/poly, integrate, differentiate, calculate limit, clearscreen/cls/clear,\nquit"
-            )
+            helpmepls()
 
         if (cmd == "clearscreen" or cmd == "cls" or cmd == "clear"):
             os.system("clear")
@@ -111,10 +120,19 @@ def main():
                 "Enter an equation (something = something): ").replace(
                     " ", "")
 
-            parsed = "Eq({}, {})".format(
-                eq_inp.split("=")[0],
-                eq_inp.split("=")[1])
-            solve_eqn(parsed)
+            parsed = ""
+
+            try:
+                parsed = "Eq({}, {})".format(
+                    eq_inp.split("=")[0],
+                    eq_inp.split("=")[1])
+            except:
+                print("Could not parse expression '{}'".format(eq_inp))
+            
+            if (solve_eqn(parsed)):
+                print("Equation solved successfully")
+            else:
+                print("Could not solve equation: '{}'".format(eq_inp))
 
         if (cmd == "plot func" or cmd == "plot function" or cmd == "plot"
                 or cmd == "plt"):
@@ -122,7 +140,8 @@ def main():
 
         if (cmd == "factorise polynomial" or cmd == "factorise poly"
                 or cmd == "factorise"):
-            factorise(sp.parse_expr(input("Enter a polynomial: ")))
+
+            factorise(sp.parse_expr(input("Enter a polynomial: ").replace("^", "**")))
 
         if (cmd == "quit" or cmd == "exit"):
             quit(0)
